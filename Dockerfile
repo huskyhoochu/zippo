@@ -12,6 +12,7 @@ WORKDIR /usr/src/app
 
 COPY --from=Builder /usr/src/app/.next ./.next
 COPY --from=Builder /usr/src/app/node_modules ./node_modules
+COPY --from=Builder /usr/src/app/.env ./
 COPY --from=Builder /usr/src/app/package.json ./
 
 EXPOSE 3000
