@@ -37,7 +37,10 @@ const createFont = () => {
 };
 
 module.exports = {
-  purge: ['./pages/**/*.tsx'],
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: ['./src/**/*.tsx'],
+  },
   theme: {
     fontFamily: {
       sans: [

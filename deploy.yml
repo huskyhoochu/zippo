@@ -1,5 +1,5 @@
 ---
-- hosts: lightsail
+- hosts: zippo
   environment:
     PYTHONPATH: "/home/ubuntu/.local/lib/python3.6/site-packages"
   vars:
