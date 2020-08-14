@@ -1,0 +1,14 @@
+.header {
+  &__body {
+    @apply flex items-center justify-between;
+    @apply py-8px;
+
+    &__logo {
+      @apply w-xl-row-1;
+    }
+
+    &__nav {
+      
+    }
+  } 
+}

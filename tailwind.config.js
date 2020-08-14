@@ -26,6 +26,33 @@ const createPixelValues = (isNegative = false) => {
   return result;
 };
 
+const grid = {
+  xl: 72,
+  lg: 56,
+  sm: 'calc(50% - 10px)',
+};
+
+const gutter = {
+  xl: 16,
+  lg: 12,
+  sm: 10,
+};
+
+const createGrid = (size, isGutter = false) => {
+  const range = Array.from(new Array(12).keys()).map((i) => i + 1);
+  const getWidth = (num) => num * (grid[size] + gutter[size]);
+
+  const result = {};
+
+  range.forEach((i) => {
+    result[`${size}-row-${i}${isGutter ? '-gutter' : ''}`] = `${
+      isGutter ? getWidth(i) : getWidth(i) - gutter[size]
+    }px`;
+  });
+
+  return result;
+};
+
 const createFont = () => {
   const range = Array.from(new Array(20).keys()).map((i) => (i + 1) * 2);
   const result = {};
@@ -42,6 +69,11 @@ module.exports = {
     content: ['./src/**/*.tsx'],
   },
   theme: {
+    screens: {
+      sm: { max: '768px' },
+      lg: { min: '769px', max: '1024px' },
+      xl: { min: '1025px' },
+    },
     fontFamily: {
       sans: [
         'Noto Sans KR',
@@ -81,6 +113,11 @@ module.exports = {
       fontSize: createFont(),
       width: {
         ...createPixelValues(),
+        ...createGrid('xl'),
+        ...createGrid('xl', true),
+        ...createGrid('lg'),
+        ...createGrid('lg', true),
+        'sm-row-1': grid.sm,
       },
       minWidth: {
         ...createPixelValues(),
@@ -99,9 +136,16 @@ module.exports = {
       },
       padding: {
         ...createPixelValues(),
+        'gutter-xl': `${gutter.xl}px`,
+        'gutter-lg': `${gutter.lg}px`,
+        'gutter-sm': `${gutter.sm}px`,
       },
       margin: {
+        ...createPixelValues(true),
         ...createPixelValues(),
+        'gutter-xl': `${gutter.xl}px`,
+        'gutter-lg': `${gutter.lg}px`,
+        'gutter-sm': `${gutter.sm}px`,
       },
     },
   },

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '../styles/components/header.scss';
+
 $CDN_URL: 'https://cdn.zippo-days.me';
 
 
@@ -52,4 +54,23 @@ $CDN_URL: 'https://cdn.zippo-days.me';
   font-display: swap;
   src: local('Noto Serif KR Bold'), local('NotoSerifKR-Bold'),
   url('#{$CDN_URL}/fonts/NotoSerifKR-Bold.subset.woff') format('woff');
+}
+
+
+.zippo-container {
+  margin: 0 auto;
+  @screen xl {
+    width: 1072px;
+    padding: 0 16px;
+  }
+
+  @screen lg {
+    width: 828px;
+    padding: 0 8px;
+  }
+
+  @screen sm {
+    width: 100%;
+    padding: 0 20px;
+  }
 }
