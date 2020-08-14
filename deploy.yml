@@ -6,7 +6,7 @@
     version: "{{ version }}"
     repository: git@github.com:huskyhoochu/zippo.git
     source_dest: /home/ubuntu/zippo
-    repo_name: clean_front
+    repo_name: zippo
   remote_user: ubuntu
   tasks:
   - action: ping
