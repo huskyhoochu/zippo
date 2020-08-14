@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$CDN_URL: 'https://zippo-resources.s3.ap-northeast-2.amazonaws.com';
+
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-weight: 300;
+  font-display: swap;
+  src: local('Noto Sans KR Light'), local('NotoSansKR-Light'),
+  url('#{$CDN_URL}/fonts/NotoSansKR-Light.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-weight: 400;
+  font-display: swap;
+  src: local('Noto Sans KR Regular'), local('NotoSansKR-Regular'),
+  url('#{$CDN_URL}/fonts/NotoSansKR-Regular.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-weight: 700;
+  font-display: swap;
+  src: local('Noto Sans KR Bold'), local('NotoSansKR-Bold'),
+  url('#{$CDN_URL}/fonts/NotoSansKR-Bold.subset.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Noto Serif KR';
+  font-weight: 300;
+  font-display: swap;
+  src: local('Noto Serif KR Light'), local('NotoSerifKR-Light'),
+  url('#{$CDN_URL}/fonts/NotoSerifKR-Light.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Noto Serif KR';
+  font-weight: 400;
+  font-display: swap;
+  src: local('Noto Serif KR Regular'), local('NotoSerifKR-Regular'),
+  url('#{$CDN_URL}/fonts/NotoSerifKR-Regular.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Noto Serif KR';
+  font-weight: 700;
+  font-display: swap;
+  src: local('Noto Serif KR Bold'), local('NotoSerifKR-Bold'),
+  url('#{$CDN_URL}/fonts/NotoSerifKR-Bold.subset.woff') format('woff');
+}

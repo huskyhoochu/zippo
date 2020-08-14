@@ -1,0 +1,65 @@
+---
+- hosts: lightsail
+  environment:
+    PYTHONPATH: "/home/ubuntu/.local/lib/python3.6/site-packages"
+  vars:
+    version: "{{ version }}"
+    repository: git@github.com:huskyhoochu/zippo.git
+    source_dest: /home/ubuntu/zippo
+    repo_name: clean_front
+  remote_user: ubuntu
+  tasks:
+  - action: ping
+  - name: install certain python modules for docker
+    pip:
+      name: "{{ item.name }}"
+      version: "{{ item.version }}"
+      state: present
+    with_items:
+    - { name: docker, version: 2.1.0 }
+  - git:
+      repo: "{{ repository }}"
+      dest: "{{ source_dest }}"
+      version: "{{ version }}"
+    register: output_commits
+    become: true
+  - name: Display commit info
+    debug:
+      var: output_commits
+  - name: Build new image
+    become: true
+    docker_image:
+      name: "{{ repo_name }}"
+      tag: '{{ output_commits.after[:7] }}'
+      build:
+        path: "{{ source_dest }}"
+      source: build
+  - name: Remove old container
+    become: true
+    docker_container:
+      name: '{{ output_commits.before[:7] }}'
+      state: absent
+  - name: Run new container
+    become: true
+    docker_container:
+      name: '{{ output_commits.after[:7] }}'
+      image: '{{ repo_name }}:{{ output_commits.after[:7] }}'
+      ports: '3030:3000'
+  - name: Restart nginx
+    become: true
+    service:
+      name: nginx
+      state: restarted
+  - name: Remove old image
+    become: true
+    ignore_errors: yes
+    docker_image:
+      name: "{{ repo_name }}"
+      tag: '{{ output_commits.before[:7] }}'
+      state: absent
+  - name: prune dangling images
+    become: true
+    docker_prune:
+      images: yes
+      images_filters:
+        dangling: true
