@@ -10,7 +10,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ settings, tags, children }: Props) => {
   return (
-    <div>
+    <div className="layout">
       <Header settings={settings} tags={tags} />
       {children}
     </div>

@@ -1,0 +1,67 @@
+.home {
+  @apply my-60px;
+
+  &__featured {
+    @apply flex items-start justify-between;
+
+    @screen sm {
+      @apply flex-col-reverse;
+    }
+
+    &__text-group {
+      font-family: 'Noto Serif KR';
+
+      @screen xl {
+        @apply w-xl-row-5;
+      }
+
+      @screen lg {
+        @apply w-lg-row-5;
+      }
+
+      @screen sm {
+        @apply w-full;
+      }
+
+      .meta {
+        font-family: 'Abril Fatface';
+        @apply flex items-center justify-between;
+
+        .time {
+          @apply text-gray-700;
+        }
+      }
+
+      .title {
+        @apply inline-block;
+        @apply text-36px font-bold;
+
+        hr {
+          @apply border-2 border-primary;
+        }
+      }
+
+      .excerpt {
+        @apply py-16px;
+      }
+    }
+
+    &__thumbnail {
+      @apply h-330px;
+      @apply bg-no-repeat bg-center bg-cover;
+
+      @screen xl {
+        @apply w-xl-row-6;
+      }
+
+      @screen lg {
+        @apply w-lg-row-6;
+      }
+
+      @screen sm {
+        @apply w-full;
+        @apply mb-16px;
+      }
+    }
+  }
+}

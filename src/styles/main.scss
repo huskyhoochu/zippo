@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 @import '../styles/components/header.scss';
+@import '../styles/components/layout.scss';
+@import '../styles/pages/index.scss';
+
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+// @import url('https://fonts.googleapis.com/earlyaccess/jejumyeongjo.css');            
 
 $CDN_URL: 'https://cdn.zippo-days.me';
 

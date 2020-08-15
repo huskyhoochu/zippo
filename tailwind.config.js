@@ -94,6 +94,7 @@ module.exports = {
       ],
       serif: [
         'Abril Fatface',
+        // 'Jeju Myeongjo',
         'Noto Serif KR',
         'Georgia',
         'Cambria',
@@ -111,6 +112,9 @@ module.exports = {
       ],
     },
     extend: {
+      colors: {
+        primary: '#C0D725',
+      },
       fontSize: createFont(),
       width: {
         ...createPixelValues(),

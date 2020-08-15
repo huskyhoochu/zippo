@@ -5,6 +5,8 @@ import {
   SettingsResponse,
   Tags,
 } from '@tryghost/content-api';
+import format from 'date-fns/format';
+import parseISO from 'date-fns/parseISO';
 
 import getSettings from './api/settings';
 import getPosts from './api/posts';
@@ -21,19 +23,39 @@ interface Props {
 const Home: React.FC<Props> = ({ settings, tags, posts, featured }: Props) => {
   return (
     <Layout settings={settings} tags={tags}>
-      <p className="font-serif">안녕하세요</p>
-      {Array.prototype.map.call(featured, (post: PostOrPage) => (
-        <div key={post.id}>
-          <p>{post.title}</p>
-          <p>{post.published_at}</p>
+      <div className="home">
+        <div className="zippo-container">
+          {Array.prototype.map.call(featured, (post: PostOrPage) => (
+            <div key={post.id} className="home__featured">
+              <div className="home__featured__text-group">
+                <div className="meta">
+                  <p>{post.primary_tag.name}</p>
+                  <p className="time">
+                    {format(parseISO(post.published_at), 'yyyy-MM-dd')}
+                  </p>
+                </div>
+                <div className="title">
+                  <h3>{post.title}</h3>
+                  <hr />
+                </div>
+                <div className="excerpt">
+                  <p>{post.excerpt}</p>
+                </div>
+              </div>
+              <div
+                className="home__featured__thumbnail"
+                style={{ backgroundImage: `url(${post.feature_image})` }}
+              />
+            </div>
+          ))}
+          {Array.prototype.map.call(posts, (post: PostOrPage) => (
+            <div key={post.id}>
+              <p>{post.title}</p>
+              <p>{post.published_at}</p>
+            </div>
+          ))}
         </div>
-      ))}
-      {Array.prototype.map.call(posts, (post: PostOrPage) => (
-        <div key={post.id}>
-          <p>{post.title}</p>
-          <p>{post.published_at}</p>
-        </div>
-      ))}
+      </div>
     </Layout>
   );
 };
@@ -47,7 +69,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
   });
 
   const posts = await getPosts({ limit: '12', order: 'published_at DESC' });
-  const featured = await getPosts({ limit: 1, filter: 'featured:true' });
+  const featured = await getPosts({
+    limit: 1,
+    filter: 'featured:true',
+    include: 'tags',
+  });
   return {
     props: {
       settings,
