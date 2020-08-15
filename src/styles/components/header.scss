@@ -34,6 +34,11 @@
 
       .title-group {
         @apply text-20px;
+
+        svg {
+          @apply w-20px;
+          @apply h-20px;
+        }
       }
 
       .nav {
@@ -53,6 +58,11 @@
 
           &__logo {
             @apply w-xl-row-1;
+          }
+
+          svg {
+            @apply w-20px;
+            @apply h-20px;
           }
         }
 
