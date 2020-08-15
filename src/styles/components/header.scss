@@ -8,7 +8,21 @@
     }
 
     &__nav {
-      
+      @apply font-serif;
+      @apply text-20px;
+      @apply flex items-center justify-between;
+
+      @screen xl {
+        @apply w-xl-row-3;
+      }
+
+      @screen lg {
+        @apply w-lg-row-4;
+      }
+
+      @screen sm {
+        @apply hidden;
+      }
     }
   } 
 }

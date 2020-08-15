@@ -93,6 +93,7 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
       serif: [
+        'Abril Fatface',
         'Noto Serif KR',
         'Georgia',
         'Cambria',

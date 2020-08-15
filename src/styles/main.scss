@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @import '../styles/components/header.scss';
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
 $CDN_URL: 'https://cdn.zippo-days.me';
-
 
 @font-face {
   font-family: 'Noto Sans KR';
