@@ -24,5 +24,49 @@
         @apply hidden;
       }
     }
+
+    &__mobile {
+      @apply hidden;
+
+      @screen sm {
+        @apply block;
+      }
+
+      .title-group {
+        @apply text-20px;
+      }
+
+      .nav {
+        @apply hidden fixed right-0 top-0;
+        @apply w-screen;
+        @apply h-full;
+        @apply bg-white;
+
+        &.active {
+          @apply block;
+        }
+
+        &__title-group {
+          @apply flex items-center justify-between;
+          @apply py-8px;
+          @apply text-20px;
+
+          &__logo {
+            @apply w-xl-row-1;
+          }
+        }
+
+        &__items {
+          @apply font-serif;
+          @apply text-20px;
+          @apply py-8px;
+
+          a {
+            @apply block;
+            @apply mb-4px;
+          }
+        }
+      }
+    }
   } 
 }
