@@ -1,0 +1,59 @@
+.post {
+  &__thumbnail {
+    @apply w-full h-500px;
+    @apply bg-no-repeat bg-center bg-cover bg-fixed;
+    @apply mb-36px;
+
+    @screen sm {
+      @apply h-300px;
+    }
+  }
+
+  &__meta {
+    font-family: 'Abril Fatface';
+    @apply flex items-center justify-between;
+    @apply mb-8px;
+
+    .time {
+      @apply text-gray-700;
+    }
+  }
+
+  &__title {
+    @apply inline-block;
+    @apply text-36px font-bold;
+
+    @screen sm {
+      @apply text-24px;
+    }
+
+    hr {
+      @apply border-2 border-primary;
+    }
+  }
+
+  &__content {
+    @apply my-48px;
+    @apply text-16px;
+    line-height: 2.0;
+    font-family: 'Noto Serif KR';
+
+    p {
+      @apply min-h-30px;
+      text-indent: 16px;
+    }
+
+    h2 {
+      @apply font-bold;
+      @apply text-24px;
+
+      @screen sm {
+        @apply text-20px;
+      }
+    }
+  }
+
+  &__nav {
+    @apply flex items-center justify-center;
+  }
+}
