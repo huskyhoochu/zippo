@@ -44,10 +44,9 @@ const Home: React.FC<Props> = ({ settings, tags, posts, featured }: Props) => {
                     <p>{post.excerpt}</p>
                   </div>
                 </div>
-                <div
-                  className="home__featured__thumbnail"
-                  style={{ backgroundImage: `url(${post.feature_image})` }}
-                />
+                <div className="home__featured__thumbnail">
+                  <img src={post.feature_image} alt={post.slug} />
+                </div>
               </a>
             </Link>
           ))}
@@ -57,10 +56,9 @@ const Home: React.FC<Props> = ({ settings, tags, posts, featured }: Props) => {
               {Array.prototype.map.call(posts, (post: PostOrPage) => (
                 <Link key={post.id} href={post.slug}>
                   <a className="item">
-                    <div
-                      className="item__thumbnail"
-                      style={{ backgroundImage: `url(${post.feature_image})` }}
-                    />
+                    <div className="item__thumbnail">
+                      <img src={post.feature_image} alt={post.slug} />
+                    </div>
                     <div className="item__meta">
                       <p>{post.primary_tag.name}</p>
                       <p className="item__meta__time">
