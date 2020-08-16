@@ -87,6 +87,8 @@
       }
 
       .item {
+        @apply mb-20px;
+
         @screen xl {
           @apply w-xl-row-4;
           @apply mx-gutter-xl;
@@ -109,7 +111,7 @@
 
         &__meta {
           @apply flex items-center justify-between;
-          @apply mt-16px;
+          @apply mt-8px;
 
           &__time {
             @apply text-gray-700;
