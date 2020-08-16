@@ -2,6 +2,7 @@ import { SettingsResponse, Tags } from '@tryghost/content-api';
 import Head from 'next/head';
 
 import Header from './header';
+import Footer from './footer';
 
 interface Props {
   settings: SettingsResponse;
@@ -60,6 +61,7 @@ const Layout: React.FC<Props> = ({ settings, tags, children }: Props) => {
       </Head>
       <Header settings={settings} tags={tags} />
       {children}
+      <Footer />
     </div>
   );
 };
