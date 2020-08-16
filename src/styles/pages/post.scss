@@ -1,7 +1,7 @@
 .post {
   &__thumbnail {
     @apply w-full h-500px;
-    @apply bg-no-repeat bg-center bg-cover bg-fixed;
+    @apply bg-no-repeat bg-center bg-cover;
     @apply mb-36px;
 
     @screen sm {
