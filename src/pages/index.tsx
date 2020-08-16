@@ -49,12 +49,26 @@ const Home: React.FC<Props> = ({ settings, tags, posts, featured }: Props) => {
               />
             </div>
           ))}
-          {Array.prototype.map.call(posts, (post: PostOrPage) => (
-            <div key={post.id}>
-              <p>{post.title}</p>
-              <p>{post.published_at}</p>
+          <div className="home__recent">
+            <h2 className="home__recent__title">Recent Posts</h2>
+            <div className="home__recent__items">
+              {Array.prototype.map.call(posts, (post: PostOrPage) => (
+                <div key={post.id} className="item">
+                  <div
+                    className="item__thumbnail"
+                    style={{ backgroundImage: `url(${post.feature_image})` }}
+                  />
+                  <div className="item__meta">
+                    <p>{post.primary_tag.name}</p>
+                    <p className="item__meta__time">
+                      {format(parseISO(post.published_at), 'yyyy-MM-dd')}
+                    </p>
+                  </div>
+                  <p>{post.title}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </Layout>
@@ -69,7 +83,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
     filter: 'accent_color:#000000',
   });
 
-  const posts = await getPosts({ limit: '12', order: 'published_at DESC' });
+  const posts = await getPosts({
+    limit: '12',
+    order: 'published_at DESC',
+    include: 'tags',
+  });
   const featured = await getPosts({
     limit: 1,
     filter: 'featured:true',

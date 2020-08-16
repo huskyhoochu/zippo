@@ -64,4 +64,58 @@
       }
     }
   }
+
+  &__recent {
+    &__title {
+      @apply text-36px;
+    }
+
+    &__items {
+      @apply my-16px;
+      @apply flex items-center;
+
+      @screen xl {
+        @apply -mx-16px;
+      }
+
+      @screen lg {
+        @apply -mx-12px;
+      }
+
+      @screen sm {
+        @apply flex-wrap;
+      }
+
+      .item {
+        @screen xl {
+          @apply w-xl-row-4;
+          @apply mx-gutter-xl;
+        }
+
+        @screen lg {
+          @apply w-lg-row-4;
+          @apply mx-gutter-lg;
+        }
+
+        @screen sm {
+          @apply w-full;
+        }
+
+        &__thumbnail {
+          @apply w-full;
+          @apply h-180px;
+          @apply bg-no-repeat bg-center bg-cover;
+        }
+
+        &__meta {
+          @apply flex items-center justify-between;
+          @apply mt-16px;
+
+          &__time {
+            @apply text-gray-700;
+          }
+        }
+      }
+    }
+  }
 }
