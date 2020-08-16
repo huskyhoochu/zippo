@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next';
-import Head from 'next/head';
+import Link from 'next/link';
 import {
   PostsOrPages,
   PostOrPage,
@@ -27,45 +27,49 @@ const Home: React.FC<Props> = ({ settings, tags, posts, featured }: Props) => {
       <div className="home">
         <div className="zippo-container">
           {Array.prototype.map.call(featured, (post: PostOrPage) => (
-            <div key={post.id} className="home__featured">
-              <div className="home__featured__text-group">
-                <div className="meta">
-                  <p>{post.primary_tag.name}</p>
-                  <p className="time">
-                    {format(parseISO(post.published_at), 'yyyy-MM-dd')}
-                  </p>
+            <Link key={post.id} href={post.slug}>
+              <a className="home__featured">
+                <div className="home__featured__text-group">
+                  <div className="meta">
+                    <p>{post.primary_tag.name}</p>
+                    <p className="time">
+                      {format(parseISO(post.published_at), 'yyyy-MM-dd')}
+                    </p>
+                  </div>
+                  <div className="title">
+                    <h3>{post.title}</h3>
+                    <hr />
+                  </div>
+                  <div className="excerpt">
+                    <p>{post.excerpt}</p>
+                  </div>
                 </div>
-                <div className="title">
-                  <h3>{post.title}</h3>
-                  <hr />
-                </div>
-                <div className="excerpt">
-                  <p>{post.excerpt}</p>
-                </div>
-              </div>
-              <div
-                className="home__featured__thumbnail"
-                style={{ backgroundImage: `url(${post.feature_image})` }}
-              />
-            </div>
+                <div
+                  className="home__featured__thumbnail"
+                  style={{ backgroundImage: `url(${post.feature_image})` }}
+                />
+              </a>
+            </Link>
           ))}
           <div className="home__recent">
             <h2 className="home__recent__title">Recent Posts</h2>
             <div className="home__recent__items">
               {Array.prototype.map.call(posts, (post: PostOrPage) => (
-                <div key={post.id} className="item">
-                  <div
-                    className="item__thumbnail"
-                    style={{ backgroundImage: `url(${post.feature_image})` }}
-                  />
-                  <div className="item__meta">
-                    <p>{post.primary_tag.name}</p>
-                    <p className="item__meta__time">
-                      {format(parseISO(post.published_at), 'yyyy-MM-dd')}
-                    </p>
-                  </div>
-                  <p>{post.title}</p>
-                </div>
+                <Link key={post.id} href={post.slug}>
+                  <a className="item">
+                    <div
+                      className="item__thumbnail"
+                      style={{ backgroundImage: `url(${post.feature_image})` }}
+                    />
+                    <div className="item__meta">
+                      <p>{post.primary_tag.name}</p>
+                      <p className="item__meta__time">
+                        {format(parseISO(post.published_at), 'yyyy-MM-dd')}
+                      </p>
+                    </div>
+                    <p>{post.title}</p>
+                  </a>
+                </Link>
               ))}
             </div>
           </div>
