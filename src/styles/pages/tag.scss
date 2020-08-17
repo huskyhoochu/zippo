@@ -1,0 +1,71 @@
+.tag {
+  @apply my-60px;
+
+  &__title-group {
+    @apply text-center;
+    @apply text-36px;
+    @apply mb-36px;
+  }
+
+  &__body {
+    @apply my-16px;
+    @apply flex items-center;
+
+    @screen xl {
+      @apply -mx-16px;
+    }
+
+    @screen lg {
+      @apply -mx-12px;
+    }
+
+    @screen sm {
+      @apply flex-wrap;
+    }
+
+    .item {
+      @apply mb-20px;
+
+      @screen xl {
+        @apply w-xl-row-4;
+        @apply mx-gutter-xl;
+      }
+
+      @screen lg {
+        @apply w-lg-row-4;
+        @apply mx-gutter-lg;
+      }
+
+      @screen sm {
+        @apply w-full;
+      }
+
+      &:hover {
+        .item__thumbnail {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      &__thumbnail {
+        @apply w-full;
+        @apply h-160px;
+        @apply overflow-hidden;
+
+        img {
+          transition: transform 0.2s ease;
+        }
+      }
+
+      &__meta {
+        @apply flex items-center justify-between;
+        @apply mt-8px;
+
+        &__time {
+          @apply text-gray-700;
+        }
+      }
+    }
+  }
+}
