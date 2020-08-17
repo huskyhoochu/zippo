@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 import Link from 'next/link';
 import { NextRouter } from 'next/router';
 import { SettingsResponse, Tags, Tag } from '@tryghost/content-api';
@@ -9,17 +9,18 @@ import {
   faSun,
   faMoon,
 } from '@fortawesome/free-solid-svg-icons';
-import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 interface Props {
   settings: SettingsResponse;
   router: NextRouter;
   tags: Tags;
+  isDark: boolean;
+  setIsDark: Dispatch<SetStateAction<boolean>>;
 }
 
 const Header: React.FC<Props> = (props: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [cookies, setCookie] = useCookies(['display']);
   const { query } = props.router;
 
   const onToggle = () => {
@@ -30,27 +31,17 @@ const Header: React.FC<Props> = (props: Props) => {
     if (typeof window != 'undefined') {
       const layout = document.getElementsByClassName('layout');
 
-      if (cookies['display'] === 'dark') {
+      if (props.isDark) {
         layout[0].classList.remove('dark');
-        setCookie('display', 'light');
+        Cookies.set('display', 'light');
+        props.setIsDark(false);
       } else {
         layout[0].classList.add('dark');
-        setCookie('display', 'dark');
+        Cookies.set('display', 'dark');
+        props.setIsDark(true);
       }
     }
   };
-
-  useEffect(() => {
-    if (typeof window != 'undefined') {
-      const layout = document.getElementsByClassName('layout');
-
-      if (cookies['display'] === 'dark') {
-        layout[0].classList.remove('dark');
-      } else {
-        layout[0].classList.add('dark');
-      }
-    }
-  }, [cookies]);
 
   return (
     <header className="header">
@@ -73,17 +64,13 @@ const Header: React.FC<Props> = (props: Props) => {
               </Link>
             ))}
             <button type="button" className="toggle" onClick={onLightDark}>
-              <FontAwesomeIcon
-                icon={cookies['display'] === 'dark' ? faMoon : faSun}
-              />
+              <FontAwesomeIcon icon={props.isDark ? faMoon : faSun} />
             </button>
           </div>
           <div className="header__body__mobile">
             <div className="title-group">
               <button type="button" className="toggle" onClick={onLightDark}>
-                <FontAwesomeIcon
-                  icon={cookies['display'] === 'dark' ? faMoon : faSun}
-                />
+                <FontAwesomeIcon icon={props.isDark ? faMoon : faSun} />
               </button>
               <button type="button" onClick={onToggle}>
                 <FontAwesomeIcon icon={faBars} />

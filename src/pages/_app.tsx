@@ -1,14 +1,16 @@
 import type { AppProps } from 'next/app';
-import { CookiesProvider } from 'react-cookie';
+import Cookies from 'js-cookie';
 
 import '../styles/main.scss';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
-  return (
-    <CookiesProvider>
-      <Component {...pageProps} />;
-    </CookiesProvider>
-  );
+  const display = Cookies.get('display');
+
+  if (!display) {
+    Cookies.set('display', 'light');
+  }
+
+  return <Component {...pageProps} display={display} />;
 };
 
 export default MyApp;

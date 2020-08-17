@@ -1,6 +1,8 @@
+import { useRef, useEffect, useMemo, useState } from 'react';
 import { SettingsResponse, Tags } from '@tryghost/content-api';
 import { NextRouter } from 'next/router';
 import Head from 'next/head';
+import Cookies from 'js-cookie';
 
 import Header from './header';
 import Footer from './footer';
@@ -12,17 +14,22 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({
-  settings,
-  tags,
-  router,
-  children,
-}: Props) => {
+const Layout: React.FC<Props> = (props: Props) => {
+  const layoutRef = useRef<HTMLDivElement>(null);
+  const [isDark, setIsDark] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (layoutRef.current && Cookies.get('display') === 'dark') {
+      layoutRef.current.classList.add('dark');
+      setIsDark(true);
+    }
+  }, []);
+
   return (
-    <div className="layout">
+    <div className="layout" ref={layoutRef}>
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <title>{settings.title}</title>
+        <title>{props.settings.title}</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -48,17 +55,20 @@ const Layout: React.FC<Props> = ({
         />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#ffffff" />
-        <meta name="description" content={settings.description} />
-        <meta property="og:description" content={settings.og_description} />
+        <meta name="description" content={props.settings.description} />
+        <meta
+          property="og:description"
+          content={props.settings.og_description}
+        />
         <meta name="referrer" content="no-referrer-when-downgrade" />
         <meta
           property="twitter:description"
-          content={settings.og_description}
+          content={props.settings.og_description}
         />
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="og:site_name"
-          content={settings.title}
+          content={props.settings.title}
           key="site-name"
         />
         <link
@@ -67,16 +77,20 @@ const Layout: React.FC<Props> = ({
           key="canonical"
         />
         <meta property="og:type" content="website" key="type" />
-        <meta property="og:title" content={settings.og_title} key="title" />
+        <meta
+          property="og:title"
+          content={props.settings.og_title}
+          key="title"
+        />
         <meta
           property="og:url"
           content={process.env.NEXT_PUBLIC_URL}
           key="url"
         />
-        <meta property="og:image" content={settings.og_image} key="img" />
+        <meta property="og:image" content={props.settings.og_image} key="img" />
         <meta
           property="twitter:title"
-          content={settings.og_title}
+          content={props.settings.og_title}
           key="twitter-title"
         />
         <meta
@@ -86,12 +100,12 @@ const Layout: React.FC<Props> = ({
         />
         <meta
           property="twitter:image"
-          content={settings.og_image}
+          content={props.settings.og_image}
           key="twitter-img"
         />
       </Head>
-      <Header settings={settings} tags={tags} router={router} />
-      {children}
+      <Header {...props} isDark={isDark} setIsDark={setIsDark} />
+      {props.children}
       <Footer />
     </div>
   );
