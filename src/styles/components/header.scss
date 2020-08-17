@@ -53,7 +53,7 @@
       }
 
       .nav {
-        @apply hidden fixed right-0 top-0;
+        @apply hidden fixed right-0 top-0 z-10;
         @apply w-screen;
         @apply h-full;
         @apply bg-white;

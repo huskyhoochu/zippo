@@ -11,7 +11,7 @@
     &:hover {
       .home__featured__thumbnail {
         img {
-          transform: scale(1.1);
+          transform: scale(1.1) translate(-50%, -50%);
         }
       }
     }
@@ -56,8 +56,8 @@
     }
 
     &__thumbnail {
+      @apply relative;
       @apply h-330px;
-      @apply bg-no-repeat bg-center bg-cover;
       @apply overflow-hidden;
 
       @screen xl {
@@ -74,6 +74,8 @@
       }
 
       img {
+        @apply absolute;
+        @apply absolute-center-full;
         transition: transform 0.2s ease;
       }
     }
