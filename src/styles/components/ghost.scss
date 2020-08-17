@@ -3,7 +3,7 @@
 .content {
   width: 70%;
   margin: 0 auto;
- }
+}
 
 .kg-gallery-container {
   display: flex;
@@ -96,7 +96,7 @@ article figcaption {
 
 .kg-bookmark-metadata,
 .kg-bookmark-description {
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .kg-bookmark-metadata {
@@ -118,8 +118,8 @@ article figcaption {
   width: 1em;
   height: 1em;
   vertical-align: text-bottom;
-  margin-right: .5em;
-  margin-bottom: .05em;
+  margin-right: 0.5em;
+  margin-bottom: 0.05em;
 }
 
 .kg-bookmark-thumbnail {
@@ -142,8 +142,8 @@ article figcaption {
 }
 
 .kg-bookmark-publisher::before {
-  content: "•";
-  margin: 0 .5em;
+  content: '•';
+  margin: 0 0.5em;
 }
 
 .kg-embed-card {
@@ -152,7 +152,9 @@ article figcaption {
   align-items: center;
   width: 100%;
 
-  iframe, object, embed {
+  iframe,
+  object,
+  embed {
     max-width: 100%;
   }
 }
