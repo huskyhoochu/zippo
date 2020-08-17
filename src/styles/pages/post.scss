@@ -1,8 +1,8 @@
 .post {
   &__thumbnail {
     @apply w-full h-500px;
-    @apply bg-no-repeat bg-center bg-cover;
-    @apply mb-36px;
+    @apply bg-no-repeat bg-center bg-fixed;
+    @apply my-36px;
 
     @screen sm {
       @apply h-300px;

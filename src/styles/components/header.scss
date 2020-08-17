@@ -13,11 +13,11 @@
       @apply flex items-center justify-between;
 
       @screen xl {
-        @apply w-xl-row-3;
+        @apply w-xl-row-4;
       }
 
       @screen lg {
-        @apply w-lg-row-4;
+        @apply w-lg-row-5;
       }
 
       @screen sm {
@@ -32,6 +32,20 @@
         hr {
           @apply opacity-100;
           @apply border-2 border-primary;
+        }
+      }
+
+      .toggle {
+        @apply w-xl-row-1;
+
+        &:focus {
+          outline: none;
+        }
+
+        svg {
+          @apply ml-auto;
+          @apply w-20px;
+          @apply h-20px;
         }
       }
     }
@@ -49,6 +63,14 @@
         svg {
           @apply w-20px;
           @apply h-20px;
+        }
+
+        .toggle {
+          @apply mr-36px;
+
+          &:focus {
+            outline: none;
+          }
         }
       }
 

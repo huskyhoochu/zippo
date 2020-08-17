@@ -2,4 +2,22 @@
   @apply font-serif;
   @apply appearance-none;
   @apply antialiased;
+  @apply min-h-screen;
+
+  &.dark {
+    @apply bg-gray-900;
+    @apply text-white;
+
+    .header__body__mobile {
+      .title-group {
+        @apply bg-gray-900;
+        @apply text-white;
+      }
+
+      .nav {
+        @apply bg-gray-900;
+        @apply text-white;
+      }
+    }
+  }
 }
