@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { SettingsResponse, Tags, PostOrPage } from '@tryghost/content-api';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
@@ -17,8 +18,10 @@ interface Props {
 }
 
 const Post: React.FC<Props> = (props: Props) => {
+  const router = useRouter();
+
   return (
-    <Layout {...props}>
+    <Layout {...props} router={router}>
       <Head>
         <title>{`${props.post.title} | ${props.settings.title}`}</title>
         <meta

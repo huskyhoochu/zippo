@@ -23,6 +23,17 @@
       @screen sm {
         @apply hidden;
       }
+
+      hr {
+        @apply border-2 opacity-0;
+      }
+
+      .active {
+        hr {
+          @apply opacity-100;
+          @apply border-2 border-primary;
+        }
+      }
     }
 
     &__mobile {
@@ -73,7 +84,18 @@
 
           a {
             @apply block;
-            @apply mb-4px;
+            @apply mb-8px;
+          }
+
+          hr {
+            @apply border-2 opacity-0;
+          }
+    
+          .active {
+            hr {
+              @apply opacity-100;
+              @apply border-2 border-primary;
+            }
           }
         }
       }

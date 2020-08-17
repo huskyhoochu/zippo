@@ -1,5 +1,6 @@
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import {
   PostsOrPages,
   PostOrPage,
@@ -22,8 +23,10 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ settings, tags, posts, featured }: Props) => {
+  const router = useRouter();
+
   return (
-    <Layout settings={settings} tags={tags}>
+    <Layout settings={settings} tags={tags} router={router}>
       <div className="home">
         <div className="zippo-container">
           {Array.prototype.map.call(featured, (post: PostOrPage) => (

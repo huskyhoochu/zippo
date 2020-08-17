@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { NextRouter } from 'next/router';
 import { SettingsResponse, Tags, Tag } from '@tryghost/content-api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 interface Props {
   settings: SettingsResponse;
+  router: NextRouter;
   tags: Tags;
 }
 
 const Header: React.FC<Props> = (props: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { query } = props.router;
 
   const onToggle = () => {
     setIsOpen((state) => !state);
@@ -30,7 +33,10 @@ const Header: React.FC<Props> = (props: Props) => {
           <div className="header__body__nav">
             {Array.prototype.map.call(props.tags, (tag: Tag) => (
               <Link key={tag.id} href={`/tag/${tag.slug}`}>
-                <a>{tag.name}</a>
+                <a className={`${query.slug === tag.slug ? 'active' : ''}`}>
+                  <span>{tag.name}</span>
+                  <hr />
+                </a>
               </Link>
             ))}
           </div>
@@ -60,7 +66,14 @@ const Header: React.FC<Props> = (props: Props) => {
                 <div className="nav__items">
                   {Array.prototype.map.call(props.tags, (tag: Tag) => (
                     <Link key={tag.id} href={`/tag/${tag.slug}`}>
-                      <a>{tag.name}</a>
+                      <a
+                        className={`${query.slug === tag.slug ? 'active' : ''}`}
+                      >
+                        <div>
+                          <span>{tag.name}</span>
+                          <hr />
+                        </div>
+                      </a>
                     </Link>
                   ))}
                 </div>

@@ -1,4 +1,5 @@
 import { SettingsResponse, Tags } from '@tryghost/content-api';
+import { NextRouter } from 'next/router';
 import Head from 'next/head';
 
 import Header from './header';
@@ -7,10 +8,16 @@ import Footer from './footer';
 interface Props {
   settings: SettingsResponse;
   tags: Tags;
+  router: NextRouter;
   children: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ settings, tags, children }: Props) => {
+const Layout: React.FC<Props> = ({
+  settings,
+  tags,
+  router,
+  children,
+}: Props) => {
   return (
     <div className="layout">
       <Head>
@@ -83,7 +90,7 @@ const Layout: React.FC<Props> = ({ settings, tags, children }: Props) => {
           key="twitter-img"
         />
       </Head>
-      <Header settings={settings} tags={tags} />
+      <Header settings={settings} tags={tags} router={router} />
       {children}
       <Footer />
     </div>
