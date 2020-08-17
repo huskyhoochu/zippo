@@ -27,7 +27,7 @@ const Home: React.FC<Props> = ({ settings, tags, posts, featured }: Props) => {
       <div className="home">
         <div className="zippo-container">
           {Array.prototype.map.call(featured, (post: PostOrPage) => (
-            <Link key={post.id} href={post.slug}>
+            <Link key={post.id} href={`/posts/${post.slug}`}>
               <a className="home__featured">
                 <div className="home__featured__text-group">
                   <div className="meta">
@@ -54,7 +54,7 @@ const Home: React.FC<Props> = ({ settings, tags, posts, featured }: Props) => {
             <h2 className="home__recent__title">Recent Posts</h2>
             <div className="home__recent__items">
               {Array.prototype.map.call(posts, (post: PostOrPage) => (
-                <Link key={post.id} href={post.slug}>
+                <Link key={post.id} href={`/posts/${post.slug}`}>
                   <a className="item">
                     <div className="item__thumbnail">
                       <img src={post.feature_image} alt={post.slug} />

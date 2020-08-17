@@ -42,22 +42,46 @@ const Layout: React.FC<Props> = ({ settings, tags, children }: Props) => {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="description" content={settings.description} />
-        <link rel="canonical" href={process.env.NEXT_PUBLIC_URL} />
-        <meta name="referrer" content="no-referrer-when-downgrade" />
-        <meta property="og:site_name" content={settings.title} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={settings.og_title} />
         <meta property="og:description" content={settings.og_description} />
-        <meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
-        <meta property="og:image" content={settings.og_image} />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content={settings.og_title} />
+        <meta name="referrer" content="no-referrer-when-downgrade" />
         <meta
           property="twitter:description"
           content={settings.og_description}
         />
-        <meta property="twitter:url" content={process.env.NEXT_PUBLIC_URL} />
-        <meta property="twitter:image" content={settings.og_image} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="og:site_name"
+          content={settings.title}
+          key="site-name"
+        />
+        <link
+          rel="canonical"
+          href={process.env.NEXT_PUBLIC_URL}
+          key="canonical"
+        />
+        <meta property="og:type" content="website" key="type" />
+        <meta property="og:title" content={settings.og_title} key="title" />
+        <meta
+          property="og:url"
+          content={process.env.NEXT_PUBLIC_URL}
+          key="url"
+        />
+        <meta property="og:image" content={settings.og_image} key="img" />
+        <meta
+          property="twitter:title"
+          content={settings.og_title}
+          key="twitter-title"
+        />
+        <meta
+          property="twitter:url"
+          content={process.env.NEXT_PUBLIC_URL}
+          key="twitter-url"
+        />
+        <meta
+          property="twitter:image"
+          content={settings.og_image}
+          key="twitter-img"
+        />
       </Head>
       <Header settings={settings} tags={tags} />
       {children}

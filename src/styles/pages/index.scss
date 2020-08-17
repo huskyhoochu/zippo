@@ -126,8 +126,7 @@
 
         &__thumbnail {
           @apply w-full;
-          @apply h-180px;
-          @apply bg-no-repeat bg-center bg-cover;
+          @apply h-160px;
           @apply overflow-hidden;
 
           img {

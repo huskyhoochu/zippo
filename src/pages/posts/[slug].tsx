@@ -1,13 +1,14 @@
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
+import Head from 'next/head';
 import { SettingsResponse, Tags, PostOrPage } from '@tryghost/content-api';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 
-import Layout from '../components/layout';
-import getSettings from './api/settings';
-import getTags from './api/tags';
-import getPost from './api/post';
+import Layout from '../../components/layout';
+import getSettings from '../api/settings';
+import getTags from '../api/tags';
+import getPost from '../api/post';
 
 interface Props {
   settings: SettingsResponse;
@@ -18,6 +19,50 @@ interface Props {
 const Post: React.FC<Props> = (props: Props) => {
   return (
     <Layout {...props}>
+      <Head>
+        <title>{`${props.post.title} | ${props.settings.title}`}</title>
+        <meta
+          property="og:site_name"
+          content={`${props.post.title} | ${props.settings.title}`}
+          key="site-name"
+        />
+        <link
+          rel="canonical"
+          href={`${process.env.NEXT_PUBLIC_URL}/posts/${props.post.slug}`}
+          key="canonical"
+        />
+        <meta property="og:type" content="article" key="type" />
+        <meta
+          property="og:title"
+          content={`${props.post.title} | ${props.settings.title}`}
+          key="title"
+        />
+        <meta
+          property="og:url"
+          content={`${process.env.NEXT_PUBLIC_URL}/posts/${props.post.slug}`}
+          key="url"
+        />
+        <meta
+          property="og:image"
+          content={props.post.feature_image}
+          key="img"
+        />
+        <meta
+          property="twitter:title"
+          content={`${props.post.title} | ${props.settings.title}`}
+          key="twitter-title"
+        />
+        <meta
+          property="twitter:url"
+          content={`${process.env.NEXT_PUBLIC_URL}/posts/${props.post.slug}`}
+          key="twitter-url"
+        />
+        <meta
+          property="twitter:image"
+          content={props.post.feature_image}
+          key="twitter-img"
+        />
+      </Head>
       <div className="post">
         <div
           className="post__thumbnail"
