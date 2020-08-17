@@ -45,6 +45,10 @@
         @apply text-36px font-bold;
         @apply keep-all;
 
+        @screen sm {
+          @apply text-24px;
+        }
+
         hr {
           @apply border-2 border-primary;
         }
@@ -99,7 +103,7 @@
       }
 
       .item {
-        @apply mb-20px;
+        @apply mb-32px;
 
         @screen xl {
           @apply w-xl-row-4;
