@@ -36,7 +36,7 @@
         @apply flex items-center justify-between;
 
         .time {
-          @apply text-gray-700;
+          color: var(--gray-color);
         }
       }
 
@@ -145,7 +145,7 @@
           @apply mt-8px;
 
           &__time {
-            @apply text-gray-700;
+            color: var(--gray-color);
           }
         }
       }
