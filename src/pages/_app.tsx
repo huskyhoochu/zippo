@@ -7,7 +7,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   const display = Cookies.get('display');
 
   if (!display) {
-    Cookies.set('display', 'light');
+    Cookies.set('display', 'light', {
+      expires: 365,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+    });
   }
 
   return <Component {...pageProps} display={display} />;
