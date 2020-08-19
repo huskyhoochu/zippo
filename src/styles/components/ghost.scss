@@ -163,3 +163,10 @@ article figcaption {
   margin: 0 auto;
   max-width: 100%;
 }
+
+.kg-image-card {
+  figcaption {
+    color: var(--gray-color);
+    @apply text-center text-14px;
+  }
+}
