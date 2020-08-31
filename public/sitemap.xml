@@ -9,42 +9,62 @@
 
 <url>
   <loc>https://zippo-days.me/</loc>
-  <lastmod>2020-08-17T13:01:56+00:00</lastmod>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
   <priority>1.00</priority>
 </url>
-y<url>
+<url>
   <loc>https://zippo-days.me/tag/books</loc>
-  <lastmod>2020-08-17T13:01:56+00:00</lastmod>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://zippo-days.me/tag/journals</loc>
-  <lastmod>2020-08-17T13:01:56+00:00</lastmod>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://zippo-days.me/tag/poems</loc>
-  <lastmod>2020-08-17T13:01:56+00:00</lastmod>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zippo-days.me/posts/another-coat-of-paint</loc>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zippo-days.me/posts/hilma-af-klint</loc>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zippo-days.me/posts/running-days</loc>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zippo-days.me/posts/recent-dream</loc>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://zippo-days.me/posts/me-and-others</loc>
-  <lastmod>2020-08-17T13:01:56+00:00</lastmod>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://zippo-days.me/posts/kiss-of-affricate</loc>
-  <lastmod>2020-08-17T13:01:56+00:00</lastmod>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://zippo-days.me/posts/my-modern-korean-history</loc>
-  <lastmod>2020-08-17T13:01:56+00:00</lastmod>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://zippo-days.me/posts/seeing-candle</loc>
-  <lastmod>2020-08-17T13:01:56+00:00</lastmod>
+  <lastmod>2020-08-31T16:07:48+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
