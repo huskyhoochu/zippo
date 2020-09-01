@@ -51,6 +51,11 @@
         @apply text-20px;
       }
     }
+
+    h3 {
+      @apply font-bold;
+      @apply text-18px;
+    }
   }
 
   &__nav {
