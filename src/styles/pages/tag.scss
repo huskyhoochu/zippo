@@ -9,7 +9,7 @@
 
   &__body {
     @apply my-16px;
-    @apply flex items-center;
+    @apply flex items-center flex-wrap;
 
     @screen xl {
       @apply -mx-16px;
@@ -19,21 +19,17 @@
       @apply -mx-12px;
     }
 
-    @screen sm {
-      @apply flex-wrap;
-    }
-
     .item {
-      @apply mb-20px;
+      @apply mb-32px;
 
       @screen xl {
         @apply w-xl-row-4;
-        @apply mx-gutter-xl;
+        @apply ml-gutter-xl;
       }
 
       @screen lg {
         @apply w-lg-row-4;
-        @apply mx-gutter-lg;
+        @apply ml-gutter-lg;
       }
 
       @screen sm {
