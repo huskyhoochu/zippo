@@ -33,11 +33,19 @@ const Header: React.FC<Props> = (props: Props) => {
 
       if (props.isDark) {
         layout[0].classList.remove('dark');
-        Cookies.set('display', 'light');
+        Cookies.set('display', 'light', {
+          expires: 365,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: 'strict',
+        });
         props.setIsDark(false);
       } else {
         layout[0].classList.add('dark');
-        Cookies.set('display', 'dark');
+        Cookies.set('display', 'dark', {
+          expires: 365,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: 'strict',
+        });
         props.setIsDark(true);
       }
     }
