@@ -55,7 +55,15 @@
       }
 
       .excerpt {
-        @apply py-16px;
+        @apply py-8px;
+        @apply text-14px;
+        @apply max-h-150px;
+        @apply overflow-hidden;
+        line-height: 2;
+        font-family: 'Noto Serif KR';
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
       }
     }
 
