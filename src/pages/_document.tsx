@@ -37,6 +37,7 @@ class MyDocument extends Document {
           `,
             }}
           ></script>
+          <script data-ad-client="ca-pub-7714688207671069" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </body>
       </Html>
     );
